@@ -1,3 +1,24 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const menuIcon = document.getElementById("menu-icon");
+    const navigation = document.querySelector(".navigation");
+
+    menuIcon.addEventListener("click", function () {
+        navigation.classList.toggle("show");
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+});
+
+
+
 const bbqs = [
     {
         "id": "ribs-brisket-and-burnt-ends",
