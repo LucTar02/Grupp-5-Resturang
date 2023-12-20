@@ -114,3 +114,11 @@ header {
   padding: 10px;
   width: fit-content;
 }
+
+section {
+	margin: 1em;
+	padding: 1em;
+	border: 1px solid #ddd;
+}
+
+
