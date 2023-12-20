@@ -118,6 +118,7 @@ header {
   width: fit-content;
 }
 
+
 #shopping-cart-dropdown {
   display: none;
   position: absolute;
@@ -135,3 +136,12 @@ header {
 .fa-shopping-cart-container {
   align-self: center;
 }
+=======
+section {
+	margin: 1em;
+	padding: 1em;
+	border: 1px solid #ddd;
+}
+
+
+
