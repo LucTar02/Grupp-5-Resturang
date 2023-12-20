@@ -1,4 +1,34 @@
+let shoppingCartData = [];
+const cartCountContainer = document.getElementById('cart-count');
+const shoppingCartDropdown = document.getElementById('shopping-cart-dropdown');
+
+window.addToCart = function (itemId) {
+    const selectedItem = bbqs.find(bbq => bbq.id === itemId);
+    shoppingCartData.push(selectedItem);
+    updateShoppingCartDisplay();
+
+};
+function updateShoppingCartDisplay() {
+    const cartItemsContainer = document.getElementById('cart-items');
+	
+    cartItemsContainer.innerHTML = ''; // Clear previous content
+
+    // Loop through shoppingCartData and append each item to the list
+    shoppingCartData.forEach(item => {
+        const listItem = document.createElement('li');
+        listItem.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+        cartItemsContainer.appendChild(listItem);
+    });
+	cartCountContainer.textContent = shoppingCartData.length;
+}
+
+function toggleCart() {
+    shoppingCartDropdown.classList.toggle('show');
+}
+
+
 document.addEventListener("DOMContentLoaded", function () {
+	
     const menuIcon = document.getElementById("menu-icon");
     const navigation = document.querySelector(".navigation");
 
@@ -16,6 +46,9 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+
+
 
 
 
@@ -61,13 +94,14 @@ const bbqs = [
 function toggleDropdown(dropdownId, event) {
     const dropdown = document.getElementById(dropdownId);
     const target = event.currentTarget;
+	
 
     // Toggle visibility
     dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
 
     if (dropdown.style.display === 'block') {
         dropdown.innerHTML = '';//tar bort ifall det är något
-
+		
         bbqs.forEach(bbq => {
             const bbqLink = document.createElement('a');
             bbqLink.href = '#'; // Add actual link if needed
@@ -78,6 +112,7 @@ function toggleDropdown(dropdownId, event) {
                     <div>${bbq.dsc}</div>
                     <div>Price: $${bbq.price.toFixed(2)}</div>
                     <div>Country: ${bbq.country}</div>
+					<button onclick="addToCart('${bbq.id}')">Add to Cart</button>
                 </div>
             `;
             dropdown.appendChild(bbqLink);
