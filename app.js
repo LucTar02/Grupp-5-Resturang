@@ -129,3 +129,4 @@ function toggleDropdown(dropdownId, event) {
 document.getElementById('bbq-dropdown-container').addEventListener('click', function (event) {
     event.stopPropagation();
 });
+

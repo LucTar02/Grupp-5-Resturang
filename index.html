@@ -59,8 +59,20 @@
             <h3>Om Oss</h3>
             <p>Välkommen till Taverna! Vår passion är att skapa en autentisk BBQ-upplevelse, där varje måltid är en hyllning till rökiga smaker och traditionella tillagningsmetoder. Vårt kök är fyllt av en blandning av hemligheter och kärlek till konsten att grilla. Oavsett om du älskar saftiga revben, långsamt tillagad pulled pork eller smakrik brisket, kommer du att uppleva äkta värme i varje tugga. På Taverna handlar det inte bara om mat; det handlar om gemenskap, glädje och en smakresa genom BBQ-traditioner. Vi ser fram emot att välkomna dig till vårt bord och dela dessa smakupplevelser med dig.</p></footer>
         </section>
+		<section id="feedback">
+			<h3>Feedback</h3>
+			<form action="/submit_feedback" method="post">
+			<label for="name">Name:</label><br>
+			<input type="text" id="name" name="name" required><br>
+			<label for="email">Email:</label><br>
+			<input type="email" id="email" name="email" required><br>
+			<label for="feedback">Feedback:</label><br>
+			<textarea id="feedback" name="feedback" rows="4" cols="50" required></textarea><br>
+			<input type="submit" value="Submit">
+			</form>
+		</section>
 		<section id="contact">
-			<h3>Contact Us</h3>
+			<h3>Kontakt</h3>
 			<p>123 Main Street, Anytown, Anystate, 12345</p>
 			<p>Email: example@example.com</p>
 			<p>Phone: (123) 456-7890</p>
