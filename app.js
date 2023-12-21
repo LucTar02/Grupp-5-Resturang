@@ -1,3 +1,37 @@
+function placeOrder() {
+    if (shoppingCartData.length > 0) {
+        const orderConfirmationDiv = document.createElement('div');
+        orderConfirmationDiv.classList.add('order-confirmation');
+
+        orderConfirmationDiv.innerHTML = '<h2>Order Confirmation</h2>';
+        orderConfirmationDiv.innerHTML += '<p>We have received your order:</p>';
+
+        const itemList = document.createElement('ul');
+        shoppingCartData.forEach(item => {
+            const listItem = document.createElement('li');
+            listItem.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+          
+            itemList.appendChild(listItem);
+        });
+        orderConfirmationDiv.appendChild(itemList);
+
+        orderConfirmationDiv.innerHTML += '<p>Thank you for shopping with us!</p>';
+        document.body.appendChild(orderConfirmationDiv);
+        shoppingCartData = [];
+        updateShoppingCartDisplay();
+		setTimeout(() => {
+            document.body.removeChild(orderConfirmationDiv);
+        }, 6000);
+    } else {
+        alert('Your shopping cart is empty. Add items before placing an order.');
+    }
+}
+
+function removeOrder() {
+	shoppingCartData = [];
+	updateShoppingCartDisplay();
+}
+
 let shoppingCartData = [];
 const cartCountContainer = document.getElementById('cart-count');
 const shoppingCartDropdown = document.getElementById('shopping-cart-dropdown');
@@ -10,6 +44,8 @@ window.addToCart = function (itemId) {
 };
 function updateShoppingCartDisplay() {
     const cartItemsContainer = document.getElementById('cart-items');
+    const orderCountElement = document.getElementById('order-count');
+    const orderTotalElement = document.getElementById('order-total');
 	
     cartItemsContainer.innerHTML = ''; // Clear previous content
 
@@ -20,6 +56,13 @@ function updateShoppingCartDisplay() {
         cartItemsContainer.appendChild(listItem);
     });
 	cartCountContainer.textContent = shoppingCartData.length;
+	orderCountElement.textContent = shoppingCartData.length;
+
+	const totalCost = shoppingCartData.reduce((total, item) => total + item.price, 0);
+    orderTotalElement.textContent = totalCost.toFixed(2);
+
+    // Update cart count
+    cartCountContainer.textContent = shoppingCartData.length;
 }
 
 function toggleCart() {
@@ -119,11 +162,8 @@ function toggleDropdown(dropdownId, event) {
         });
     }
 
-    // tar bort clkick event
-    event.preventDefault();
-    // tar bort så menyn inte försvinner vid click utanför
-    event.stopPropagation();
 }
+
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -147,3 +187,5 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
     `;
 });
+
+
