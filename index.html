@@ -11,9 +11,8 @@
 <body>
     <header>
 			<div class="fas fa-bars" id="menu-icon"></div>
-
 			
-		
+
         <h1 class="logo">BBQ Place</h1>
         <div class="fa-shopping-cart-container" id="cart-icon-container" onclick="toggleCart()">
 			<i class="fas fa-shopping-cart" id="cart-icon"></i>
@@ -22,20 +21,29 @@
 		<div class="cart-dropdown" id="shopping-cart-dropdown">
 			<h3>Shopping Cart</h3>
 			<ul id="cart-items"></ul>
+			<div id="order-summary">
+				<p>Total Items: <span id="order-count">0</span></p>
+				<p>Total Cost: $<span id="order-total">0.00</span></p>
+			</div>
+			<button class="order" onclick="placeOrder()">Order</button>
+			<button class="cancel-order" onclick="removeOrder()">Cancel order</button>
 		</div>
 
 
 
-        <h1 class="logo">BBQ Place!</h1>
-        <div class="fas fa-shopping-cart"></div>
+        
 
     </header>
 	<ul class="navigation">
 		<li><a class="bbq-link" href="#bbq">BBQs</a></li>
 		<li><a class="bread-link" href="#breads">Breads</a></li>
 		<li><a class="burger-link" href="#burgers">Burgers</a></li>
+		<li><a class="contact-link" href="#contact">Contacts</a></li>
+		<li><a class="aboutus-link" href="#about">About us</a></li>
 	</ul>
-
+	
+	
+	
     <main>
         <div id="bbq" class="main-menu" onclick="toggleDropdown('bbqs-dropdown', event)">BBQs</div>
         <div class="dropdown-content" id="bbqs-dropdown"></div>
@@ -54,7 +62,7 @@
         <div class="main-menu">Steaks</div>
     </main>
 
-    <footer>
+	<footer>
         <section id="about">
             <h3>Om Oss</h3>
             <p>Välkommen till Taverna! Vår passion är att skapa en autentisk BBQ-upplevelse, där varje måltid är en hyllning till rökiga smaker och traditionella tillagningsmetoder. Vårt kök är fyllt av en blandning av hemligheter och kärlek till konsten att grilla. Oavsett om du älskar saftiga revben, långsamt tillagad pulled pork eller smakrik brisket, kommer du att uppleva äkta värme i varje tugga. På Taverna handlar det inte bara om mat; det handlar om gemenskap, glädje och en smakresa genom BBQ-traditioner. Vi ser fram emot att välkomna dig till vårt bord och dela dessa smakupplevelser med dig.</p></footer>
@@ -78,7 +86,6 @@
 			<p>Phone: (123) 456-7890</p>
 		</section>
     </footer>
-
+        
     <script src="app.js"></script>
 </body>
-</html>
