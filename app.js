@@ -107,7 +107,7 @@ function toggleDropdown(dropdownId, event) {
             bbqLink.href = '#'; // Add actual link if needed
             bbqLink.innerHTML = `
                 <div>
-                    <img src="${bbq.img}" alt="${bbq.name}">
+                    <div><img src="${bbq.img}" alt="${bbq.name}">
                     <div><strong>${bbq.name}</strong></div>
                     <div>${bbq.dsc}</div>
                     <div>Price: $${bbq.price.toFixed(2)}</div>
@@ -125,7 +125,25 @@ function toggleDropdown(dropdownId, event) {
     event.stopPropagation();
 }
 
-// tar bort så menyn inte försvinner vid click utanför
-document.getElementById('bbq-dropdown-container').addEventListener('click', function (event) {
-    event.stopPropagation();
+document.addEventListener("DOMContentLoaded", function () {
+
+    // Random BBQ
+    const randomIndex = Math.floor(Math.random() * bbqs.length);
+    const randomBBQ = bbqs[randomIndex];
+
+    // Display random BBQ
+    const recommendationContainer = document.getElementById("recommendation-container");
+    recommendationContainer.innerHTML = `
+        <div class="recommended-js">
+            <div><img src="${randomBBQ.img}" alt="${randomBBQ.name}" class="small-img">
+            <div><strong>${randomBBQ.name}</strong></div>
+            </div>
+            <div class="recommended-info" ><div>${randomBBQ.dsc}</div>
+            <div>Price: $${randomBBQ.price.toFixed(2)}</div>
+            <div>Rate: ${randomBBQ.rate} </div>
+            <div>Country: ${randomBBQ.country}</div>
+            <button onclick="addToCart('${randomBBQ.id}')">Add to Cart</button>
+            </div>
+        </div>
+    `;
 });
