@@ -10,6 +10,7 @@ function placeOrder() {
         shoppingCartData.forEach(item => {
             const listItem = document.createElement('li');
             listItem.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+          
             itemList.appendChild(listItem);
         });
         orderConfirmationDiv.appendChild(itemList);
