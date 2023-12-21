@@ -65,7 +65,7 @@ header {
   top: 0;
   height: 10vh;
   width: 100%;
-  background-color: rgb(162, 60, 2);
+  background-color: rgb(244, 148, 108);
   justify-content: space-between;
   box-shadow: 0px 0px 5px 5px black;
   margin-bottom: 2px;
@@ -109,13 +109,13 @@ header {
   font-weight: bold;
 }
 .navigation.show {
-  background-color: rgb(162, 60, 2);
-
+  background-color: rgb(244, 148, 108);
   box-shadow: 0px 0px 5px 5px black;
   display: flex;
+  position: absolute;
   flex-direction: column;
-  padding: 10px;
-  width: fit-content;
+  top: 90px;
+  z-index: 2;
 }
 
 #shopping-cart-dropdown {
@@ -123,7 +123,7 @@ header {
   position: absolute;
   top: 90px;
   right: 0;
-  background-color: rgb(162, 60, 2);
+  background-color: rgb(244, 148, 108);
   box-shadow: 0px 0px 5px 5px black;
   z-index: 2;
 }
@@ -135,9 +135,28 @@ header {
 .fa-shopping-cart-container {
   align-self: center;
 }
+.order {
+  justify-content: center;
+  background-color: #67d96998;
+}
+.cancel-order {
+  justify-content: center;
+  background-color: #ea8080e9;
+}
 
 section {
   margin: 1em;
   padding: 1em;
   border: 1px solid #ddd;
+}
+li {
+  display: flex;
+}
+.order-confirmation {
+  position: absolute;
+  top: 80px;
+  background-color: rgb(244, 148, 108);
+  box-shadow: 0px 0px 5px 5px black;
+  z-index: 2;
+  right: 0;
 }
