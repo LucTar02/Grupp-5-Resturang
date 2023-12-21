@@ -144,6 +144,29 @@ header {
   background-color: #ea8080e9;
 }
 
+
+.small-img{
+  width: 100px;
+}
+.recommended-container{
+  border-bottom: solid 2px black;
+  margin: 20px;
+  padding-bottom: 10px;
+}
+
+.recommended-js{
+  display: flex;
+  flex-direction: row;
+}
+
+.Rubrik-recommendation{
+  margin: 20px;
+}
+
+.recommended-info{
+  margin-left: 5px;
+}
+
 section {
   margin: 1em;
   padding: 1em;
@@ -160,3 +183,4 @@ li {
   z-index: 2;
   right: 0;
 }
+
